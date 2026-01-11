@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота: Дослідження пружних властивостей тіл</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Лабораторна робота з фізики</h1>
+            <h2>Дослідження пружних властивостей тіл</h2>
+        </header>
+
+        <section class="theory">
+            <h3>Мета роботи</h3>
+            <p>Дослідити пружні властивості гумового шнура під час деформації розтягнення.</p>
+            
+            <div class="equipment">
+                <h4>Обладнання:</h4>
+                <ul>
+                    <li>Штатив із муфтою та лапкою</li>
+                    <li>Гумовий шнур завдовжки 15–20 см</li>
+                    <li>4 тягарці масою 100 г кожен</li>
+                    <li>Учнівська лінійка</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="simulation">
+            <h3>Віртуальна симуляція експерименту</h3>
+            
+            <div class="experiment-area">
+                <div class="canvas-container">
+                    <canvas id="experimentCanvas" width="400" height="600"></canvas>
+                </div>
+
+                <div class="controls">
+                    <div class="control-group">
+                        <h4>Керування експериментом</h4>
+                        <div class="button-group">
+                            <button id="addWeight" class="btn btn-primary">Додати тягарець (100 г)</button>
+                            <button id="removeWeight" class="btn btn-secondary">Зняти тягарець</button>
+                            <button id="resetExperiment" class="btn btn-danger">Скинути експеримент</button>
+                        </div>
+                    </div>
+
+                    <div class="info-panel">
+                        <h4>Поточні дані</h4>
+                        <div class="info-item">
+                            <span class="label">Кількість тягарців:</span>
+                            <span class="value" id="weightCount">0</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Сила пружності:</span>
+                            <span class="value" id="forceValue">0.0 Н</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Довжина шнура:</span>
+                            <span class="value" id="cordLength">8.0 см</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Видовження:</span>
+                            <span class="value" id="elongation">0.0 см</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="results">
+            <h3>Таблиця результатів експерименту</h3>
+            <div class="table-container">
+                <table id="resultsTable">
+                    <thead>
+                        <tr>
+                            <th>№ досліду</th>
+                            <th>Кількість тягарців</th>
+                            <th>Сила пружності F, Н</th>
+                            <th>Довжина шнура l, м</th>
+                            <th>Видовження Δl, м</th>
+                            <th>F/Δl, Н/м</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsBody">
+                        <!-- Дані будуть додані через JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="analysis">
+            <h3>Аналіз результатів</h3>
+            <div class="analysis-content">
+                <div class="chart-container">
+                    <canvas id="analysisChart" width="600" height="400"></canvas>
+                </div>
+                <div class="conclusion">
+                    <h4>Висновок</h4>
+                    <p id="conclusionText">Виконайте експеримент, щоб побачити висновки.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/Experiment.js"></script>
+    <script src="js/Renderer.js"></script>
+    <script src="js/Chart.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
