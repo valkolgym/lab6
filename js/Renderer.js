@@ -12,10 +12,14 @@ class Renderer {
 
     drawStand() {
         const ctx = this.ctx;
+
+        // Стіл
+        ctx.fillStyle = '#666';
+        ctx.fillRect(0, 265, 220, 300);
         
         // Основа штатива
         ctx.fillStyle = '#333';
-        ctx.fillRect(150, 50, 100, 15);
+        ctx.fillRect(115, 250, 100, 15);
         
         // Вертикальна стійка
         ctx.fillRect(195, 65, 10, 200);
@@ -68,7 +72,7 @@ class Renderer {
             const y = bottomY + 5 + i * (weightHeight + 2);
             
             // Тягарець
-            ctx.fillStyle = '#4169E1';
+            ctx.fillStyle = '#999';
             ctx.fillRect(245 - weightWidth / 2, y, weightWidth, weightHeight);
             
             // Обведення
