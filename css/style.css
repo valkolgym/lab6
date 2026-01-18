@@ -40,7 +40,7 @@ header h2 {
 }
 
 section {
-    padding: 20px;
+    padding: 10px;
     border-bottom: 2px solid #f0f0f0;
 }
 
@@ -74,9 +74,9 @@ h4 {
 
 .experiment-steps {
     background-color: #f9f9f9;
-    padding: 15px;
+    padding: 10px;
     border-left: 4px solid #3498db;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 ol {
@@ -128,7 +128,7 @@ ol {
 }
 
 .control-group {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .button-group {
@@ -175,7 +175,7 @@ ol {
 
 .info-panel {
     background: #f8f9ff;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     border: 2px solid #667eea;
 }
@@ -183,7 +183,7 @@ ol {
 .info-item {
     display: flex;
     justify-content: space-between;
-    padding: 10px 0;
+    padding: 5px 0;
     border-bottom: 1px solid #ddd;
 }
 
@@ -283,7 +283,7 @@ tbody tr:hover {
     }
     
     section {
-        padding: 20px;
+        padding: 10px;
     }
     
     .experiment-area {
