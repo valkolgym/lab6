@@ -38,11 +38,13 @@ function updateTable() {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${m.number}</td>
-            <td>${m.weightCount}</td>
+            <td>${m.weightCount * 100}</td>
             <td>${m.force.toFixed(2)}</td>
-            <td>${m.length.toFixed(4)}</td>
-            <td>${m.elongation.toFixed(4)}</td>
-            <td>${m.ratio.toFixed(2)}</td>
+            <td>${(experiment.initialLength * 100).toFixed(1)}</td>
+            <td>${(m.length * 100).toFixed(1)}</td>
+            <td>${m.elongation.toFixed(3)}</td>
+            <!--<td>${m.ratio.toFixed(2)}</td>-->
+            <td>${(m.force.toFixed(2) / m.elongation.toFixed(3)).toFixed(2)}</td>
         `;
         resultsBody.appendChild(row);
     });
