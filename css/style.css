@@ -243,11 +243,12 @@ tbody tr:hover {
 }
 
 .chart-container {
-    flex: 2;
+    /*flex: 2;*/
     min-width: 300px;
     background: #fafafa;
     padding: 20px;
     border-radius: 10px;
+    margin: 0 auto;
 }
 
 #analysisChart {

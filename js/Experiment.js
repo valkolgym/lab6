@@ -5,7 +5,7 @@ class Experiment {
         this.maxWeights = 4;
         this.weightMass = 0.1; // 100 г = 0.1 кг
         this.g = 9.8; // прискорення вільного падіння
-        this.k = 50; // коефіцієнт жорсткості (Н/м)
+        this.k = Math.random() * 10 + 50; // коефіцієнт жорсткості (Н/м)
         this.measurements = [];
     }
 
