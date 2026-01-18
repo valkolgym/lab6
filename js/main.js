@@ -65,13 +65,13 @@ function updateConclusion() {
     const avgRatio = experiment.getAverageRatio();
     const isElastic = measurements.every(m => m.ratio > 0);
     
-    let conclusion = `За результатами експерименту:\n\n`;
-    conclusion += `1. Середнє значення відношення F/Δl = ${avgRatio.toFixed(2)} Н/м\n\n`;
-    conclusion += `2. Це значення приблизно дорівнює коефіцієнту жорсткості k гумового шнура.\n\n`;
-    conclusion += `3. Деформація шнура була ${isElastic ? 'пружною' : 'непружною'}, оскільки шнур ${isElastic ? 'повертався' : 'не повертався'} до початкового стану після зняття навантаження.\n\n`;
-    conclusion += `4. Графік залежності F від Δl має ${measurements.length > 2 ? 'лінійний характер' : 'характер прямої лінії'}, що підтверджує закон Гука: F = k·Δl`;
+    let conclusion = `За результатами експерименту: <br>`;
+    conclusion += `1. Середнє значення відношення F/Δl = ${avgRatio.toFixed(2)} Н/м <br>`;
+    conclusion += `2. Це значення приблизно дорівнює коефіцієнту жорсткості k гумового шнура. <br>`;
+    conclusion += `3. Деформація шнура була ${isElastic ? 'пружною' : 'непружною'}, оскільки шнур ${isElastic ? 'повертався' : 'не повертався'} до початкового стану після зняття навантаження. <br>`;
+    conclusion += `4. Графік залежності F від Δl має ${measurements.length > 2 ? 'лінійний характер' : 'характер прямої лінії'}, що підтверджує закон Гука: F = k·Δl <br>`;
     
-    conclusionText.textContent = conclusion;
+    conclusionText.innerHTML = conclusion;
 }
 
 // Обробники подій
