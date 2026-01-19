@@ -43,7 +43,6 @@ function updateTable() {
             <td>${(experiment.initialLength * 100).toFixed(1)}</td>
             <td>${(m.length * 100).toFixed(1)}</td>
             <td>${m.elongation}</td>
-            <!--<td>${m.ratio.toFixed(2)}</td>-->
             <td>${(m.force / m.elongation).toFixed(2)}</td>
         `;
         resultsBody.appendChild(row);

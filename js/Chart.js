@@ -26,6 +26,7 @@ class ChartRenderer {
         // Осі
         ctx.strokeStyle = '#333';
         ctx.lineWidth = 2;
+        ctx.setLineDash([]);
         ctx.beginPath();
         ctx.moveTo(padding, padding);
         ctx.lineTo(padding, this.height - padding);
@@ -48,22 +49,38 @@ class ChartRenderer {
         const maxElongation = Math.max(...measurements.map(m => m.elongation));
         const maxForce = Math.max(...measurements.map(m => m.force));
         
+        // Малюємо штрихові лінії
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 1;  
+        ctx.setLineDash([10, 5]);
+        ctx.beginPath();
+
+        measurements.forEach((m, i) => {
+            const x = padding + (m.elongation / maxElongation) * chartWidth;
+            const y = this.height - padding - (m.force / maxForce) * chartHeight;
+            ctx.moveTo(x, y);
+            ctx.lineTo(x, this.height - padding); 
+            ctx.moveTo(x, y);  
+            ctx.lineTo(padding, y);             
+        });
+        ctx.stroke(); 
+
         // Малюємо точки та з'єднуємо їх
         ctx.strokeStyle = '#667eea';
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 3;  
+        //ctx.setLineDash([]);
         ctx.beginPath();
         
         measurements.forEach((m, i) => {
             const x = padding + (m.elongation / maxElongation) * chartWidth;
             const y = this.height - padding - (m.force / maxForce) * chartHeight;
-            
+            ctx.setLineDash([]);
             if (i === 0) {
                 ctx.moveTo(x, y);
-            } else {
+            } else {                
                 ctx.lineTo(x, y);
-            }
-        });
-        
+            }  
+        });        
         ctx.stroke();
         
         // Малюємо точки
@@ -88,7 +105,7 @@ class ChartRenderer {
         for (let i = 0; i <= 4; i++) {
             const value = (maxElongation / 4) * i;
             const x = padding + (chartWidth / 4) * i;
-            ctx.fillText(value.toFixed(4), x, this.height - padding + 20);
+            ctx.fillText(value.toFixed(3), x, this.height - padding + 20);
         }
         
         // Шкала осі Y
