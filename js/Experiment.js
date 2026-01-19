@@ -5,7 +5,7 @@ class Experiment {
         this.maxWeights = 4;
         this.weightMass = 0.1; // 100 г = 0.1 кг
         this.g = 9.8; // прискорення вільного падіння
-        this.k = Math.random() * 10 + 50; // коефіцієнт жорсткості (Н/м)
+        this.k = Math.random() * 50 + 50; // коефіцієнт жорсткості (Н/м)
         this.measurements = [];
     }
 
@@ -33,12 +33,14 @@ class Experiment {
     }
 
     getForce() {
-        return this.weightCount * this.weightMass * this.g;
+        let temp = this.weightCount * this.weightMass * this.g;
+        return temp.toFixed(2);
     }
 
     getElongation() {
         const force = this.getForce();
-        return force / this.k;
+        let temp = force / this.k;
+        return parseFloat(temp.toFixed(3));
     }
 
     getCurrentLength() {

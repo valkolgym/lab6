@@ -19,9 +19,9 @@ const conclusionText = document.getElementById('conclusionText');
 // Оновлення інтерфейсу
 function updateUI() {
     weightCountEl.textContent = experiment.weightCount;
-    forceValueEl.textContent = experiment.getForce().toFixed(2) + ' Н';
-    cordLengthEl.textContent = (experiment.getCurrentLength() * 100).toFixed(2) + ' см';
-    elongationEl.textContent = (experiment.getElongation() * 100).toFixed(2) + ' см';
+    forceValueEl.textContent = experiment.getForce() + ' Н';
+    cordLengthEl.textContent = (experiment.getCurrentLength() * 100).toFixed(1) + ' см';
+    elongationEl.textContent = (experiment.getElongation() * 100).toFixed(1) + ' см';
     
     renderer.draw(experiment.initialLength, experiment.getCurrentLength(), experiment.weightCount);
     updateTable();
@@ -39,12 +39,12 @@ function updateTable() {
         row.innerHTML = `
             <td>${m.number}</td>
             <td>${m.weightCount * 100}</td>
-            <td>${m.force.toFixed(2)}</td>
+            <td>${m.force}</td>
             <td>${(experiment.initialLength * 100).toFixed(1)}</td>
             <td>${(m.length * 100).toFixed(1)}</td>
-            <td>${m.elongation.toFixed(3)}</td>
+            <td>${m.elongation}</td>
             <!--<td>${m.ratio.toFixed(2)}</td>-->
-            <td>${(m.force.toFixed(2) / m.elongation.toFixed(3)).toFixed(2)}</td>
+            <td>${(m.force / m.elongation).toFixed(2)}</td>
         `;
         resultsBody.appendChild(row);
     });
