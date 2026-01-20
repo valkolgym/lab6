@@ -95,21 +95,37 @@ class Renderer {
         
         const initialHeight = initialLength * pixelsPerMeter;
         const currentHeight = currentLength * pixelsPerMeter;
-        
+
         // Лінійка
-        ctx.strokeStyle = '#FFD700';
+        ctx.strokeStyle = 'rgb(216,180,103)';
+        ctx.fillStyle = 'rgb(216,180,103)';
         ctx.lineWidth = 2;
-        ctx.setLineDash([5, 3]);
+        ctx.setLineDash([]);
         ctx.beginPath();
         ctx.moveTo(280, startY);
-        ctx.lineTo(280, startY + currentHeight);
+        ctx.rect(280, startY, 10, 450);
+        ctx.stroke();
+        ctx.fill();
+        ctx.setLineDash([]);
+
+        // Шкала лінійки
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([1, 5]);
+        ctx.beginPath();
+        ctx.moveTo(280, startY);
+        ctx.lineTo(280, startY + 450);
         ctx.stroke();
         ctx.setLineDash([]);
+
+        //
         
         // Початкова довжина
         ctx.strokeStyle = '#FF0000';
         ctx.lineWidth = 1;
         ctx.beginPath();
+        ctx.moveTo(270, startY);
+        ctx.lineTo(290, startY);
         ctx.moveTo(270, startY + initialHeight);
         ctx.lineTo(290, startY + initialHeight);
         ctx.stroke();
@@ -117,6 +133,7 @@ class Renderer {
         ctx.fillStyle = '#FF0000';
         ctx.font = '11px Arial';
         ctx.textAlign = 'left';
+        ctx.fillText(`0 см`, 295, startY + 4);
         ctx.fillText(`l₀ = ${(initialLength * 100).toFixed(1)} см`, 295, startY + initialHeight + 4);
         
         // Поточна довжина
